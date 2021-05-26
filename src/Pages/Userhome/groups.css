@@ -1,0 +1,74 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;400&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;400&display=swap');
+
+
+#group_heading{
+    padding-top: 15px;
+    padding-bottom: 10px;
+    font-family: 'Oswald', sans-serif;
+    position: sticky;
+    
+    text-align: center;
+    background-color:#0df2b9;
+    border-radius: 25px 25px 0px 0px;
+     font-weight:lighter;
+    font-size: 2vw;
+}
+
+#button{
+    position:relative;
+    z-index:1;
+    
+    
+}
+
+#group_element_list{
+    padding-left: 0px;
+    
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+}
+
+#group_element {
+ padding-left: 10px;
+}
+
+#link:link { text-decoration: none; }
+
+#link:visited { text-decoration: none; }
+
+#link:hover { text-decoration: none; }
+
+#link:active { text-decoration: none; }
+
+a {
+color: #000;
+}
+
+a:hover{
+    color:darkblue;
+   
+}
+
+#reload{
+    position: absolute;
+    top: 26px;
+    right: 20px;
+   
+    
+}
+.reload_icon {
+height: 2vw;
+    width: auto;
+      
+}
+
+#new_group{
+    position: absolute;
+    height: 2vw;
+    width: auto;;
+    top: 26px;
+    left: 20px;
+}

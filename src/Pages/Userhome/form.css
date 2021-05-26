@@ -1,0 +1,16 @@
+#sub_btn{   
+position:relative;
+    left: 40%;
+    border-radius: 25px;
+    align-self: center;
+    background-color: aquamarine;
+    border: 0px;
+    margin-bottom: 20px
+        }
+
+
+#form{
+    padding-top: 15px;
+    padding-left: 18px;
+    
+}

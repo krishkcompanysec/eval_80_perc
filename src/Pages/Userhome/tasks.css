@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;400&display=swap');
+
+
+#heading_tasks{
+    /*background-color: aquamarine;*/
+    background-color:#0df2b9;
+    font-family: 'Oswald', sans-serif;
+    font-weight:lighter;
+    padding-left: 20px;
+    border-radius: 25px 25px 0px 0px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    font-size: 2vw;
+    
+}

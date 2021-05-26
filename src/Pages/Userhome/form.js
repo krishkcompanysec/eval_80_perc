@@ -1,6 +1,8 @@
 import React,{useEffect,useState,useContext} from 'react';
 import axios from 'axios';
 import './form.css';
+import store_groups from './store_groups';
+import store_delete from './store_delete';
 
 function Form(){
     const token = sessionStorage.getItem("token");
@@ -26,27 +28,30 @@ function Form(){
     
     
         const handleSubmit = a =>{
-            console.log("state 2");
+          
         a.preventDefault();       
         
-        console.log(state);
+        
             separate();
+            
+            
+            
+            
     }
         
     function separate(){
           var str = state.members;
-        console.log(str);
+        
         const stripped =str.replace(/\s+/g, '')
-        console.log(stripped);
+        
           res = stripped.split(",");
-        console.log(res);
+       
 
          res2 = res.map(function(val){
               return {"email":val}
           })
      
-        console.log("state1");
-          console.log(res2);
+
       
         request();
     }
@@ -56,7 +61,7 @@ function Form(){
     console.log("hi");
 }
     
-    function request(){
+    async function request(){
     
    var data = JSON.stringify({"groupname":group,"created_by":{"email":email},"groupmembers":[{"email":"krishnaanilkumar007@gmail.com"}]});
    
@@ -75,8 +80,7 @@ function Form(){
            "created_by":{email},
             "groupmembers":res2
             }
-             console.log("data");
-        console.log(payload);
+            
         
 var config = {
   method: 'post',
@@ -87,17 +91,30 @@ var config = {
   },
   data : payload
 };
-console.log(config);
+
         
-axios(config)
+await axios(config)
 .then(function (response) {
   console.log(JSON.stringify(response.data));
 })
 .catch(function (error) {
   console.log(error);
 });
+    
+        refresh();
+        
     }
    
+    function refresh(){
+                store_groups.dispatch({
+            type: "load_home",  
+        })
+        
+        store_delete.dispatch({
+            type: "delete_group",
+            
+        })
+    }
      /*
         const payload={
          //   "email":state.email,

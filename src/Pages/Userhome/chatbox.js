@@ -1,4 +1,5 @@
 import store_groups from './store_groups';
+import store_delete from './store_delete';
 import React,{useEffect,useState,useContext} from 'react';
 import { Link } from 'react-router-dom';
 import './chatbox.css';
@@ -9,18 +10,23 @@ var store_state;
 var load_chathead;
 var load_form;
 var load_desc;
+var load_home;
 var group_name;
-var data={};
+var data=[];
 var id;
 var created_by;
 function Chatbox(){
     
     const[chat_component_status, set_task_component] = useState(0);
     const token = sessionStorage.getItem("token");
+    const email = sessionStorage.getItem("email");
     
-        function delete_group(id){
-        console.log(id);
-        
+        async function delete_group(id){
+        console.log(email);
+            console.log(created_by);
+        if(email == created_by)
+        {
+            
         const payload = {
             "uuid":id
         }
@@ -35,11 +41,20 @@ function Chatbox(){
   data : data
 };
 
-axios(config)
+await axios(config)
 .then(function (response) {
   console.log(JSON.stringify(response.data));
 },
-     set_task_component(0)
+      
+     set_task_component(0),
+      
+      setTimeout(() => { store_delete.dispatch({
+            type: "delete_group",
+            
+        }) }, 2000),
+      
+          
+      
             )
 .catch(function (error) {
   console.log(error);
@@ -47,6 +62,10 @@ axios(config)
         
        
     }
+    else{
+        alert("You can't delete as you are not the host");
+    }
+        }
     
 
    
@@ -64,6 +83,9 @@ axios(config)
     
      load_desc = function set_load_desc(){
           set_task_component(3);
+     }     
+     load_home = function set_load_desc(){
+          set_task_component(0);
      }
     
         
@@ -125,7 +147,8 @@ export default Chatbox;
 
 
 store_groups.subscribe(()=>{
-    console.log("change"); 
+    console.log("change_groups");
+  
     store_state=store_groups.getState();
     
     flag = store_state["state"];
@@ -137,6 +160,10 @@ store_groups.subscribe(()=>{
     else if(flag == 2)
         {
             load_form();
+        }    
+    else if(flag == 4)
+        {
+            load_home();
         }
 })
     

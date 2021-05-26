@@ -8,7 +8,7 @@
     padding-top: 15px;
     padding-bottom: 10px;
     font-family: 'Oswald', sans-serif;
-    position: sticky;
+   
     
     text-align: center;
     background-color:#0df2b9;
@@ -54,7 +54,8 @@ a:hover{
 
 #reload{
     position: absolute;
-    top: 26px;
+    /*top: 26px;*/
+    top: 5%;
     right: 20px;
    
     
@@ -64,11 +65,17 @@ height: 2vw;
     width: auto;
       
 }
+#new_group_link{
+        position: absolute;
+    /*top: 26px;*/
+    top: 5%;
+    left: 18px;
+   
+}
 
 #new_group{
-    position: absolute;
+
     height: 2vw;
     width: auto;;
-    top: 26px;
-    left: 20px;
+
 }

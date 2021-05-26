@@ -40,13 +40,14 @@
 }
 
 #groupname_heading{
-    background-color:#98B3EB;
+    background-color:#7B68EE;
     font-family: 'Oswald', sans-serif;
     font-weight:lighter;
     padding-left: 20px;
         padding-top: 15px;
     padding-bottom: 10px;
     font-size: 2vw;
+    color: white;
 }
 
 #desc_heading{

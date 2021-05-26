@@ -63,6 +63,8 @@
             width: 33%;
           
             border-radius: 25px;
+                    overflow: scroll;
+            
             scrollbar-width: none;  
             
             

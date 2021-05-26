@@ -1,4 +1,5 @@
 import './groups.css';
+import store_delete from './store_delete';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import React, {useLayoutEffect,useState,useEffect} from 'react';
@@ -6,6 +7,10 @@ import store_groups from './store_groups';
 
 import reload from './Images/reload.png';
 import pencil from './Images/pencil.png';
+
+var del;
+var store_state;
+var flag;
 
 function Groups(){
     
@@ -22,8 +27,12 @@ function Groups(){
            request()     
     },[]) 
     
+    del = function refresh(){
+        console.log("req")
+        request();
+    }
     
-    function request(){
+    async function request(){
         var config = {
         method: 'get',
         url: 'https://themeshapp.herokuapp.com/main/groups/list/',
@@ -33,7 +42,7 @@ function Groups(){
         }
         };
 
-        axios(config).then(function (response) {
+        await axios(config).then(function (response) {
             console.log(JSON.stringify(response.data));
             setState({groups: response.data});
         }).catch(function (error) {
@@ -92,3 +101,19 @@ function Groups(){
 }
 
 export default Groups;
+
+
+
+store_delete.subscribe(()=>{
+    console.log("change_delete");
+    store_state=store_delete.getState();
+    console.log(store_state);
+    flag = store_state["state"];
+    
+    if(flag == 1)
+        {
+            del();
+        }
+    
+})
+    

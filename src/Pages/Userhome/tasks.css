@@ -6,10 +6,52 @@
     background-color:#0df2b9;
     font-family: 'Oswald', sans-serif;
     font-weight:lighter;
-    padding-left: 20px;
+    
     border-radius: 25px 25px 0px 0px;
     padding-top: 15px;
     padding-bottom: 10px;
     font-size: 2vw;
+    text-align: center;
     
+}
+
+
+
+#btn_reload{
+    position: absolute;
+    /*top: 26px;*/
+    top: 7%;
+    right: 40px;
+   
+    
+}
+.btn_reload_icon {
+height: 2vw;
+    width: auto;
+      
+}
+#task_list{
+    font-family: 'Oswald', sans-serif;
+}
+
+ul{
+    height: 50px;
+}
+
+#due{
+    right: 0px;
+    text-align: left;
+    position: absolute;
+    width: 150px;
+    
+    padding-left: 20px;
+}
+#break{
+
+    padding-left: 0px;
+padding-right: 0px;
+}
+
+#name {
+ padding-left: 0px;
 }
